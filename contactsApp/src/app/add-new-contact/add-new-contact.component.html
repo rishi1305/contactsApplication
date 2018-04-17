@@ -1,0 +1,21 @@
+<div>
+<h1>Enter the contact details</h1>
+<form #createNewContact = "ngForm" (ngSubmit) = "addNewContact(createNewContact.value)" >
+    <span>First Name</span>
+    <input type = "text" name = "FirstName" placeholder = "FirstName" ngModel>
+    <br/>
+    <span>Last Name</span>
+    <input type = "text" name = "LastName" placeholder = "LastName" ngModel>
+    <br/>
+    <span>Email</span>
+    <input type = "text" name = "email" placeholder = "email" ngModel>
+    <br/>
+    <span>Phone Number</span>
+    <input type = "phone" name = "phone" placeholder = "phone" ngModel>
+    <br/>
+    <span>Status</span>
+    <input type = "text" name = "Status" placeholder = "Status" ngModel>
+    <br/>
+    <input type = "submit" value = "Add New Contact" id="add">
+ </form>
+</div>

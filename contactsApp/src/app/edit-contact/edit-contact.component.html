@@ -1,0 +1,21 @@
+<div>
+  <h1>Edit Contact</h1>
+  <form #editForm = "ngForm" (ngSubmit) = "edit(editForm.value)" >
+      <span>First Name</span>
+      <input type = "text" name = "FirstName" placeholder = "FirstName" [(ngModel)]="contact.FirstName">
+      <br/>
+      <span>Last Name</span>
+      <input type = "text" name = "LastName" placeholder = "LastName" [(ngModel)]="contact.LastName">
+      <br/>
+      <span>Email</span>
+      <input type = "text" name = "email" placeholder = "email" [(ngModel)]="contact.Email">
+      <br/>
+      <span>Phone Number</span>
+      <input type = "phone" name = "phone" placeholder = "phone" [(ngModel)]="contact.PhoneNo">
+      <br/>
+      <span>Status</span>
+      <input type = "text" name = "Status" placeholder = "Status" [(ngModel)]="contact.Status">
+      <br/>
+      <input type = "submit" value = "Edit" id="edit">
+    </form>
+</div>
