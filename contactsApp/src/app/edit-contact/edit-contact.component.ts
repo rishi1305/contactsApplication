@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-edit-contact',
@@ -13,8 +13,10 @@ export class EditContactComponent implements OnInit {
   }
   edit(contact){
     //Ajax call to edit the contact in the database
-    alert("Contact editted sucessfully");
+    this.editEvent.emit(contact);
   }
   @Input() contact; 
+
+  @Output() editEvent = new EventEmitter<any>();
 
 }

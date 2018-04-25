@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-new-contact',
@@ -13,7 +13,9 @@ export class AddNewContactComponent implements OnInit {
   }
   addNewContact(contact) {
     // Here the ajax call to the server is needed to add the contact
-    alert("Contact added successfully with name "+contact.FirstName+' '+contact.LastName);
+    this.addEvent.emit(contact);
   }
+
+  @Output() addEvent = new EventEmitter<any>();
 
 }

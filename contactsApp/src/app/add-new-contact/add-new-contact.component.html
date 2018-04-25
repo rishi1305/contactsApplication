@@ -1,21 +1,24 @@
 <div>
 <h1>Enter the contact details</h1>
 <form #createNewContact = "ngForm" (ngSubmit) = "addNewContact(createNewContact.value)" >
-    <span>First Name</span>
-    <input type = "text" name = "FirstName" placeholder = "FirstName" ngModel>
+    <span>First Name *</span>
+    <input type = "text" name = "FirstName" placeholder = "FirstName" ngModel required>
     <br/>
-    <span>Last Name</span>
-    <input type = "text" name = "LastName" placeholder = "LastName" ngModel>
+    <span>Last Name *</span>
+    <input type = "text" name = "LastName" placeholder = "LastName" ngModel required>
     <br/>
-    <span>Email</span>
-    <input type = "text" name = "email" placeholder = "email" ngModel>
+    <span>Email *</span>
+    <input type = "text" name = "Email" placeholder = "email" ngModel required>
     <br/>
-    <span>Phone Number</span>
-    <input type = "phone" name = "phone" placeholder = "phone" ngModel>
+    <span>Phone Number *</span>
+    <input type = "phone" name = "PhoneNo" placeholder = "phone" ngModel required>
     <br/>
     <span>Status</span>
-    <input type = "text" name = "Status" placeholder = "Status" ngModel>
+    <select id="Status">
+        <option>Active</option>
+        <option>Deactive</option>
+    </select>
     <br/>
-    <input type = "submit" value = "Add New Contact" id="add">
+    <input type = "submit" value = "Add New Contact" id="add" [disabled]="createNewContact.invalid">
  </form>
 </div>

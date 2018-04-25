@@ -29,10 +29,10 @@
     </div>
   </div>
   <div *ngIf="addNew">
-    <app-add-new-contact></app-add-new-contact>
+    <app-add-new-contact (addEvent)="addContact($event)"></app-add-new-contact>
   </div>
   <div *ngIf="edit">
-      <app-edit-contact [contact]=selectedContact></app-edit-contact>
+      <app-edit-contact [contact]=selectedContact (editEvent)="receiveContact($event)"></app-edit-contact>
     </div>
   <ng-template #noContacts>No Contacts to display</ng-template>
 </div>

@@ -1,21 +1,24 @@
 <div>
   <h1>Edit Contact</h1>
   <form #editForm = "ngForm" (ngSubmit) = "edit(editForm.value)" >
-      <span>First Name</span>
-      <input type = "text" name = "FirstName" placeholder = "FirstName" [(ngModel)]="contact.FirstName">
+      <span>First Name *</span>
+      <input type = "text" name = "FirstName" placeholder = "FirstName" [(ngModel)]="contact.FirstName" required>
       <br/>
-      <span>Last Name</span>
-      <input type = "text" name = "LastName" placeholder = "LastName" [(ngModel)]="contact.LastName">
+      <span>Last Name *</span>
+      <input type = "text" name = "LastName" placeholder = "LastName" [(ngModel)]="contact.LastName" required>
       <br/>
-      <span>Email</span>
-      <input type = "text" name = "email" placeholder = "email" [(ngModel)]="contact.Email">
+      <span>Email *</span>
+      <input type = "email" name = "Email" placeholder = "email" [(ngModel)]="contact.Email" required>
       <br/>
-      <span>Phone Number</span>
-      <input type = "phone" name = "phone" placeholder = "phone" [(ngModel)]="contact.PhoneNo">
+      <span>Phone Number *</span>
+      <input type = "phone" name = "PhoneNo" placeholder = "phone" [(ngModel)]="contact.PhoneNo" required>
       <br/>
       <span>Status</span>
-      <input type = "text" name = "Status" placeholder = "Status" [(ngModel)]="contact.Status">
+      <select id="Status"  name = "Status" [(ngModel)]="contact.Status">
+        <option>Active</option>
+        <option>Deactive</option>
+      </select>
       <br/>
-      <input type = "submit" value = "Edit" id="edit">
+      <input type = "submit" value = "Edit" id="edit" [disabled]="editForm.invalid">
     </form>
 </div>
