@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContactServiceService } from '../display-contacts/contact-service.service';
+
 
 @Component({
   selector: 'app-edit-contact',
@@ -6,17 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./edit-contact.component.css']
 })
 export class EditContactComponent implements OnInit {
-
-  constructor() { }
+  contact = {};
+  constructor(private serv: ContactServiceService) { }
 
   ngOnInit() {
+    this.contact = this.serv.getCurrentContact();
   }
   edit(contact){
     //Ajax call to edit the contact in the database
-    this.editEvent.emit(contact);
+    this.serv.editCurrentContact(contact);
+    alert("Contact Editted Succesfully");
   }
-  @Input() contact; 
-
-  @Output() editEvent = new EventEmitter<any>();
 
 }

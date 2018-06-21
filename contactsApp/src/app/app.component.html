@@ -1,39 +1,9 @@
 <div style="text-align:center">
-  <div>
-    <button name="display" (click)="list()">Show all Contacts</button>
-    <button name="display" (click)="addNewContact()">Add New Contact</button>
-  </div>
-  <div *ngIf="showList">
-    <div *ngIf="contacts.length > 0; else noContacts">
-      <h1>List of Contacts</h1>
-      <table>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Phone Number</th>
-          <th>Status</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-        <tr *ngFor="let contact of contacts">
-            <td>{{contact.FirstName}}</td>
-            <td>{{contact.LastName}}</td>
-            <td>{{contact.Email}}</td>
-            <td>{{contact.PhoneNo}}</td>
-            <td>{{contact.Status}}</td>
-            <td><a href="#" (click)="editContact(contact)">Edit</a></td>
-            <td><a href="#" (click)="deleteContact(contact)">Delete</a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div *ngIf="addNew">
-    <app-add-new-contact (addEvent)="addContact($event)"></app-add-new-contact>
-  </div>
-  <div *ngIf="edit">
-      <app-edit-contact [contact]=selectedContact (editEvent)="receiveContact($event)"></app-edit-contact>
-    </div>
-  <ng-template #noContacts>No Contacts to display</ng-template>
+  <ul>
+    <li><a routerLink="">Show all Contacts</a></li>
+    <li><a routerLink="addNew">Add New Contact</a></li>
+  </ul>
+    
+  <router-outlet></router-outlet>
 </div>
 

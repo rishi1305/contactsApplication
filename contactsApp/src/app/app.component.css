@@ -1,13 +1,6 @@
-table, td, th{
-    border: 1px Solid Black;
-    border-spacing: 0px;
+ul {
+    list-style: none;
 }
-
-td, th {
-    padding: 2px;
-}
-
-table img {
-    width: 5px;
-    height: 5px;
+li {
+    display: inline-block;
 }

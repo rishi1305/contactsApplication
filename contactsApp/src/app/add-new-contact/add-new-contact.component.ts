@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ContactServiceService } from '../display-contacts/contact-service.service';
 
 @Component({
   selector: 'app-add-new-contact',
@@ -7,15 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AddNewContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serv: ContactServiceService) { }
 
   ngOnInit() {
   }
   addNewContact(contact) {
     // Here the ajax call to the server is needed to add the contact
-    this.addEvent.emit(contact);
+    this.serv.addNewContact(contact);
+    alert(`Contact with Name ${contact.FirstName} added Successfully`);
   }
-
-  @Output() addEvent = new EventEmitter<any>();
 
 }
